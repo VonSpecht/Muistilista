@@ -1,6 +1,6 @@
 $(document).ready(function(){
-    var selected_index = -1; 
-	var muistilistaArray = [];
+    let selected_index = -1; 
+	let muistilistaArray = [];
     
 	if(localStorage.getItem("muistilista") != null) {
 		tulosta();
@@ -10,7 +10,7 @@ $(document).ready(function(){
 	
         if($("#inputti").val() != ""){ 
 
-		    var muistilistaMerkinta = $("#inputti").val();
+		    let muistilistaMerkinta = $("#inputti").val();
             muistilistaArray.push(muistilistaMerkinta);
             localStorage.setItem("muistilista",JSON.stringify(muistilistaArray));
 		}				
@@ -29,7 +29,7 @@ $(document).ready(function(){
 
     function tulosta(){
 		if (localStorage.getItem("muistilista") != null){ 
-			var muistilistaJSON = localStorage.getItem("muistilista");
+			let muistilistaJSON = localStorage.getItem("muistilista");
 			muistilistaArray = JSON.parse(muistilistaJSON);	
             
             if(muistilistaArray == null){ 
@@ -38,7 +38,7 @@ $(document).ready(function(){
 
             $("#lista").empty();
 
-			for(var i = 0;i < muistilistaArray.length; i++){
+			for(let i = 0;i < muistilistaArray.length; i++){
                 $("#lista").append("<li>" + muistilistaArray[i] + "</li>");
             }
 		}		
