@@ -20,28 +20,28 @@ $(document).ready(function(){
         tulosta();
     	});
 
-$("#lista").on('click','li',function(e){
-	
-        $(this).hide(500, function(){
-        muistilistaArray.splice(selected_index,1);
-        localStorage.setItem("muistilista", JSON.stringify(muistilistaArray));
-        tulosta();
-        })
-})
-	function tulosta(){
-		if (localStorage.getItem("muistilista") != null){ 
-			let muistilistaJSON = localStorage.getItem("muistilista");
-			muistilistaArray = JSON.parse(muistilistaJSON);	
-            
-            		if (muistilistaArray == null){ 
-				muistilistaArray = [];
-            		}
+	$("#lista").on('click','li',function(e){
 
-            		$("#lista").empty();
+		$(this).hide(500, function(){
+		muistilistaArray.splice(selected_index,1);
+		localStorage.setItem("muistilista", JSON.stringify(muistilistaArray));
+		tulosta();
+		})
+	})
+		function tulosta(){
+			if (localStorage.getItem("muistilista") != null){ 
+				let muistilistaJSON = localStorage.getItem("muistilista");
+				muistilistaArray = JSON.parse(muistilistaJSON);	
 
-			for (let i = 0;i < muistilistaArray.length; i++){
-                	$("#lista").append("<li>" + muistilistaArray[i] + "</li>");
-            		}
-		}	
-	}
+				if (muistilistaArray == null){ 
+					muistilistaArray = [];
+				}
+
+				$("#lista").empty();
+
+				for (let i = 0;i < muistilistaArray.length; i++){
+				$("#lista").append("<li>" + muistilistaArray[i] + "</li>");
+				}
+			}	
+		}
 });
