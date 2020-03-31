@@ -3,13 +3,13 @@ $(document).ready(function(){
 	let selected_index = -1; 
 	let muistilistaArray = [];
     
-	if(localStorage.getItem("muistilista") != null) {
+	if (localStorage.getItem("muistilista") != null) {
 		tulosta();
 	}  
     
    	$("#lisaa_nappi").click(function(){ 
 	
-        if($("#inputti").val() != ""){ 
+        if ($("#inputti").val() != ""){ 
 		let muistilistaMerkinta = $("#inputti").val();
         	muistilistaArray.push(muistilistaMerkinta);
         	localStorage.setItem("muistilista",JSON.stringify(muistilistaArray));
@@ -33,13 +33,13 @@ $("#lista").on('click','li',function(e){
 			let muistilistaJSON = localStorage.getItem("muistilista");
 			muistilistaArray = JSON.parse(muistilistaJSON);	
             
-            		if(muistilistaArray == null){ 
+            		if (muistilistaArray == null){ 
 				muistilistaArray = [];
             		}
 
             		$("#lista").empty();
 
-			for(let i = 0;i < muistilistaArray.length; i++){
+			for (let i = 0;i < muistilistaArray.length; i++){
                 	$("#lista").append("<li>" + muistilistaArray[i] + "</li>");
             		}
 		}	
